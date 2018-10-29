@@ -31,13 +31,13 @@ public class GirlController {
     }
 
     @PostMapping("/add")
-    public Girl add(@Valid Girl girl, BindingResult bindingResult) {
-//        if (bindingResult.hasErrors()) {
-//            return ResultUtil.createFailResult(0 ,bindingResult.getFieldError().getDefaultMessage());
-//        }
-//        return ResultUtil.createSucessResult(girlRepository.save(girl));
+    public Result add(@Valid Girl girl, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return ResultUtil.createFailResult(0 ,bindingResult.getFieldError().getDefaultMessage());
+        }
+        return ResultUtil.createSucessResult(girlRepository.save(girl));
 
-        return girlRepository.save(girl);
+//        return girlRepository.save(girl);
     }
 
     @GetMapping("/{id}")
