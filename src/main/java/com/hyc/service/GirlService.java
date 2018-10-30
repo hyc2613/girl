@@ -55,4 +55,8 @@ public class GirlService {
             girlRepository.save(girl);
         }
     }
+
+    public void delete(Integer id) {
+        girlRepository.delete(id);
+    }
 }
