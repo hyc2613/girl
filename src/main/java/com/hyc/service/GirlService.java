@@ -51,8 +51,11 @@ public class GirlService {
     public void deleteBatch(List<Integer> idList) {
         Assert.notEmpty(idList);
         for (Integer id : idList) {
+            // 这里是不是有点多余了？？？
             girlRepository.delete(id);
         }
     }
+
+
 
 }
