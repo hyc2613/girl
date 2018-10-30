@@ -5,6 +5,7 @@ import com.hyc.exception.GirlException;
 import com.hyc.repository.GirlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import javax.transaction.Transactional;
 import javax.validation.constraints.NotNull;
@@ -45,6 +46,13 @@ public class GirlService {
             return age;
         }
         throw new GirlException(-1, "have no the girl:"+id);
+    }
+
+    public void deleteBatch(List<Integer> idList) {
+        Assert.notEmpty(idList);
+        for (Integer id : idList) {
+            girlRepository.delete(id);
+        }
     }
 
 }
