@@ -48,14 +48,11 @@ public class GirlService {
         throw new GirlException(-1, "have no the girl:"+id);
     }
 
-    public void deleteBatch(List<Integer> idList) {
-        Assert.notEmpty(idList);
-        for (Integer id : idList) {
-            // 已经OK 了
-            girlRepository.delete(id);
+    public void updateInfoById(Integer id) {
+        Girl girl = girlRepository.findOne(id);
+        if (girl != null) {
+            girl.setContent("has been changed!");
+            girlRepository.save(girl);
         }
     }
-
-
-
 }
