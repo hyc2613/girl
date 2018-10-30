@@ -57,6 +57,8 @@ public class GirlService {
     }
 
     public void delete(Integer id) {
-        girlRepository.delete(id);
+        if (id != null) {
+            girlRepository.delete(id);
+        }
     }
 }
